@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "date": "2026-03-23",
+    "time": "morning",
+    "mood": "motivated",
+    "category": ["learning", "growth"],
+    "text": "I am grateful that I am able to complete this exercise with help. I will be Diving more into Github and how to use it. With the extreme practice that I'm doing today, I will be learning how to use this tool a lot quicker."
+  },
+  {
+    "id": 2,
+    "date": "2026-03-23",
+    "time": "evening",
+    "mood": "proud",
+    "category": ["progress", "learning"],
+    "text": "I am grateful for the progress I made today and for the patience to learn. Practicing with GitHub and these tools is helping me grow more confident and quicker at using them."
+  }
+]
