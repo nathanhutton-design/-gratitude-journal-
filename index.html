@@ -27,22 +27,30 @@
 <section id="menu">
   <h2>Our Menu</h2>
 
-  <h3>Pizzas</h3>
-  <div class="item">🍕 Margherita - $12</div>
-  <div class="item">🍕 Pepperoni - $14</div>
-  <div class="item">🍕 Veggie Supreme - $13</div>
+  <div class="menu-grid">
 
-  <h3>Sizes</h3>
-  <div class="item">Small - $8</div>
-  <div class="item">Medium - $12</div>
-  <div class="item">Large - $18</div>
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1601924582975-7e3f3d7a0b0e" alt="Margherita Pizza">
+      <h3>Margherita</h3>
+      <p>$12</p>
+      <button onclick="orderItem('Margherita')">Order Now</button>
+    </div>
 
-  <h3>Toppings ($2 each)</h3>
-  <div class="item">Sausage, Pepperoni, Mushroom, Vegetables, Extra Cheese</div>
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65" alt="Pepperoni Pizza">
+      <h3>Pepperoni</h3>
+      <p>$14</p>
+      <button onclick="orderItem('Pepperoni')">Order Now</button>
+    </div>
 
-  <h3>Drinks</h3>
-  <div class="item">🍺 Wine & Beer - $12–$15</div>
-  <div class="item">🥤 Soda - $3–$5</div>
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1548365328-9f547fb0953d" alt="Veggie Pizza">
+      <h3>Veggie Supreme</h3>
+      <p>$13</p>
+      <button onclick="orderItem('Veggie Supreme')">Order Now</button>
+    </div>
+
+  </div>
 </section>
 
 <section id="about">
@@ -65,5 +73,10 @@
   <p>© 2024 Tony's Pizza</p>
 </footer>
 
+<script>
+function orderItem(item) {
+  alert("You ordered a " + item + " 🍕");
+}
+</script>
 </body>
 </html>
