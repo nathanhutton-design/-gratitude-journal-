@@ -344,6 +344,103 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  /* ── Resume section ── */
+  .resume-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .resume-card p { font-size: 1rem; color: rgba(240,244,255,0.75); line-height: 1.7; max-width: 55ch; }
+
+  /* ── Testimonial carousel ── */
+  .carousel-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .carousel-card::after {
+    content: '\201C';
+    position: absolute;
+    top: 16px; right: 30px;
+    font-size: 8rem;
+    line-height: 1;
+    color: rgba(245,166,35,0.12);
+    font-family: Georgia, serif;
+  }
+  .testimonial-text {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(240,244,255,0.82);
+    font-weight: 300;
+    font-style: italic;
+    min-height: 90px;
+    margin-bottom: 20px;
+  }
+  .testimonial-author { font-size: 0.85rem; color: var(--teal); font-weight: 600; }
+  .carousel-controls { display: flex; gap: 10px; margin-top: 20px; }
+  .btn-carousel {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--card-border);
+    color: var(--soft-white);
+    padding: 9px 18px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-carousel:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* ── Contact section ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .contact-form-card, .contact-info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 36px 40px;
+  }
+  .contact-form-card h3, .contact-info-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 12px; }
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    background: rgba(255,255,255,0.05);
+    color: var(--soft-white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--teal); }
+  .form-group textarea { min-height: 130px; resize: vertical; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(240,244,255,0.35); }
+  .contact-info-card .info-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 18px; }
+  .contact-info-card .info-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+  .contact-info-card .info-value { font-size: 0.92rem; color: rgba(240,244,255,0.8); }
+  .contact-info-card a { color: rgba(240,244,255,0.8); text-decoration: none; transition: color 0.2s; }
+  .contact-info-card a:hover { color: var(--teal); }
+
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { gap: 18px; }
@@ -355,6 +452,8 @@
     .stats-float { left: -10px; }
     .section { padding: 60px 24px; }
     footer { padding: 32px 24px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .resume-card { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -368,7 +467,9 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Certifications</a></li>
-    <li><a href="mailto:NathanHutton.uny@gmail.com">Contact</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -474,6 +575,60 @@
   </div>
 </section>
 
+<section id="resume" class="section" style="padding-top:0">
+  <div class="section-label"><h2>Resume <span>Download</span></h2><div class="line"></div></div>
+  <div class="resume-card">
+    <p>Download a copy of my full resume to share with your team or review offline. Updated June 2026.</p>
+    <a class="btn-primary" href="files/Nathan-Hutton-Resume.pdf" download>&#11123; Download Resume (PDF)</a>
+  </div>
+</section>
+
+<section id="testimonials" class="section" style="padding-top:0">
+  <div class="section-label"><h2>Testimonials <span>&amp; Feedback</span></h2><div class="line"></div></div>
+  <div class="carousel-card">
+    <p class="testimonial-text" id="testimonial-text"></p>
+    <p class="testimonial-author" id="testimonial-author"></p>
+    <div class="carousel-controls">
+      <button class="btn-carousel" id="prev-testimonial">&#8249; Prev</button>
+      <button class="btn-carousel" id="next-testimonial">Next &#8250;</button>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section" style="padding-top:0">
+  <div class="section-label"><h2>Get in <span>Touch</span></h2><div class="line"></div></div>
+  <div class="contact-grid">
+    <div class="contact-form-card">
+      <h3>Send a Message</h3>
+      <form class="form-group" action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email address" required />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button class="btn-primary" type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-info-card">
+      <h3>Contact Details</h3>
+      <div class="info-item">
+        <span class="info-label">Location</span>
+        <span class="info-value">New York, NY</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Phone</span>
+        <span class="info-value"><a href="tel:9174345708">917-434-5708</a></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Email</span>
+        <span class="info-value"><a href="mailto:NathanHutton.uny@gmail.com">NathanHutton.uny@gmail.com</a></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">LinkedIn</span>
+        <span class="info-value"><a href="https://linkedin.com/in/nathanhuttontech" target="_blank" rel="noreferrer">linkedin.com/in/nathanhuttontech</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-left">
     <h3>Nathan Hutton</h3>
@@ -488,6 +643,25 @@
 
 </div>
 <script>
+  // Testimonial carousel
+  const testimonials = [
+    { text: 'Nathan is dependable, calm under pressure, and consistently resolves issues with professionalism. He handles complex escalations without losing composure.', author: '— Colleague, BNP Paribas' },
+    { text: 'He communicates clearly and makes users feel supported even during urgent incidents. I never had to follow up on a ticket Nathan owned.', author: '— Team Lead, Withum Smith + Brown' },
+    { text: 'Nathan handles deployment and desktop support work quickly and with great attention to detail. He consistently exceeded our SLA targets.', author: '— Manager, BNP Paribas' }
+  ];
+  let testimonialIdx = 0;
+  function renderTestimonial() {
+    const t = testimonials[testimonialIdx];
+    document.getElementById('testimonial-text').textContent = '“' + t.text + '”';
+    document.getElementById('testimonial-author').textContent = t.author;
+  }
+  function nextTestimonial() { testimonialIdx = (testimonialIdx + 1) % testimonials.length; renderTestimonial(); }
+  function prevTestimonial() { testimonialIdx = (testimonialIdx - 1 + testimonials.length) % testimonials.length; renderTestimonial(); }
+  document.getElementById('next-testimonial').addEventListener('click', nextTestimonial);
+  document.getElementById('prev-testimonial').addEventListener('click', prevTestimonial);
+  setInterval(nextTestimonial, 5000);
+  renderTestimonial();
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
